@@ -2,28 +2,21 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3U8 Player running...</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="mousetrap.min.js" charset="utf-8"></script>
-    <style>
-      body {
-        background-color: black;
-      }
-
-      #video {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        margin: auto;
-        max-height: 100%;
-        max-width: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   </head>
-  <body>
-    <video id="video" style="width: 100%; height: 100%;" controls=""></video>
+  <body class="text-center">
+    <div class="card-body">
+      <div id="video-container" class="mb-4">
+        <video id="video" style="width: 50%;" controls></video>
+      </div>
+      <div id="quality-wrapper" class="mb-4">
+        <button type="button" id="quality-btn" class="btn btn-primary me-3">Change Quality</button>
+        <ul id="quality-list" class="list-unstyled d-flex flex-wrap mb-0"></ul>
+      </div>
+    </div>     
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
+    <script src="mousetrap.min.js" charset="utf-8"></script>
     <script src="player.js"></script>
   </body>
 </html>
