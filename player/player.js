@@ -19,6 +19,7 @@ function playM3u8(url) {
             qualityList.innerHTML = '';
             for (var i = 0; i < levels.length; i++) {
                 var level = levels[i];
+                console.log(level)
                 var listItem = document.createElement('li');
                 var levelBtn = document.createElement('button');
                 levelBtn.classList.add('btn', 'btn-danger');
@@ -39,8 +40,6 @@ function playM3u8(url) {
                 qualityList.style.display = 'none';
             }
         });
-
-
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = url;
         video.addEventListener('canplay', function () {
