@@ -1,4 +1,6 @@
 var video = document.getElementById('video');
+var qualityWrapper = document.getElementById('quality-wrapper');
+var userAgent = navigator.userAgent.toLowerCase();
 
 function playM3u8(url) {
     if (Hls.isSupported()) {
@@ -82,6 +84,9 @@ function vidFullscreen() {
 }
 
 playM3u8(window.location.href.split("#")[1]);
+if (userAgent.indexOf('iphone') !== -1 || userAgent.indexOf('ipad') !== -1 || userAgent.indexOf('ipod') !== -1) {
+    qualityWrapper.style.display = 'none';
+}
 $(window).on('load', function () {
     $('#video').on('click', function () { this.paused ? this.play() : this.pause(); });
     Mousetrap.bind('space', playPause);
