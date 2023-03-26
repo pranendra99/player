@@ -3,41 +3,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3U8 Player running...</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <style>
-      #quality-btn {
-        display: inline-block;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
-        background-color: #007bff;
-        border: 1px solid #007bff;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      }
-
-      #quality-btn:hover {
-        background-color: #0069d9;
-        border-color: #0062cc;
-        color: #fff;
-      }
-    </style>
   </head>
   <body class="text-center">
     <div class="card-body">
       <div class="container-fluid h-100">
         <div class="row justify-content-center align-items-center h-100">
           <div id="video-container" class="mb-4">
-            <video id="video" class="w-100" controls style="height: 90vh; max-height: calc(100vw * 9 / 16);"></video>
+            <video id="video" class="w-100" controls style="height: 80vh; max-height: calc(100vw * 9 / 16);"></video>
           </div>
         </div>
       </div>
       <div id="quality-wrapper" class="mb-4">
-        <a id="quality-btn" class="btn btn-primary me-3">Change Quality</a>
+        <button type="button" id="quality-btn" class="btn btn-primary me-3">Change Quality</button>
         <ul id="quality-list" class="list-unstyled d-flex flex-wrap mb-0"></ul>
       </div>
     </div>         
