@@ -87,11 +87,6 @@ function vidFullscreen() {
     }
 }
 
-function toDark() {
-    const element = document.body;
-    element.classList.toggle("dark-mode");
-}
-
 playM3u8(window.location.href.split("#")[1]);
 $(window).on('load', function () {
     $('#video').on('click', function () { this.paused ? this.play() : this.pause(); });
