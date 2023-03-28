@@ -13,6 +13,21 @@ function playM3u8(url) {
         hls.on(Hls.Events.MANIFEST_PARSED, function () {
             const levels = hls.levels;
             qualityList.innerHTML = '';
+
+            const liDark = document.createElement('li');
+            const btnDark = document.createElement('button');
+            btnDark.classList.add('btn', 'btn-dark');
+            btnDark.innerHTML = '<i class="fa-regular fa-moon"></i>';
+            btnDark.onclick = function () {
+                const element = document.body;
+                element.classList.toggle("dark-mode");
+                btnDark.innerHTML = (btnDark.innerHTML.includes('fa-sun')) ? '<i class="fa-regular fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+                (btnDark.classList[1].includes('btn-dark')) ? btnDark.classList.replace('btn-dark', 'btn-light') : btnDark.classList.replace('btn-light', 'btn-dark');
+            }
+            liDark.style.listStyle = 'none';
+            liDark.appendChild(btnDark);
+            qualityList.appendChild(liDark);
+
             if(levels.length > 1){
                 for (let i = 0; i < levels.length; i++) {
                     const level = levels[i];
@@ -70,6 +85,11 @@ function vidFullscreen() {
     } else if (video.webkitRequestFullscreen) {
         video.webkitRequestFullscreen();
     }
+}
+
+function toDark() {
+    const element = document.body;
+    element.classList.toggle("dark-mode");
 }
 
 playM3u8(window.location.href.split("#")[1]);
