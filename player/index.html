@@ -26,9 +26,12 @@
   </head>
   <body class="text-center">
     <div class="card-body">
-      <div class="container-fluid h-100 d-flex flex-column justify-content-center align-items-center" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-        <div id="video-container" class="mb-4">
+      <div class="container-fluid h-100 d-flex flex-column justify-content-center align-items-center">
+        <div id="video-container pc" class="mb-4" style="display:none">
           <video id="video" class="w-100" controls style="height: 80vh; max-height: calc(100vw * 9 / 16);"></video>
+        </div>
+        <div id="video-container hp" class="mb-4" style="display:none">
+          <video id="video" class="w-100" controls style="max-height: 80vh; max-width: 100%;"></video>
         </div>
         <div id="quality-wrapper" class="mb-4" style="width: 100%;">
           <ul id="quality-list" class="list-unstyled mb-0"></ul>
@@ -36,7 +39,7 @@
       </div>
     </div>       
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
     <script src="mousetrap.min.js" charset="utf-8"></script>
     <script src="player.js"></script>
   </body>
