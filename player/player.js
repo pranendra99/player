@@ -100,7 +100,7 @@ $(window).on('load', function () {
 
 
 if (window.innerWidth >= 1024) {
-    document.getElementById("video-container pc").style.display = "block";
+    video.style.cssText = 'height: 80vh; max-height: calc(100vw * 9 / 16);' //pc
 } else {
-    document.getElementById("video-container hp").style.display = "block";
+    video.style.cssText = 'max-height: 80vh; max-width: 100%;' //hp
 }
