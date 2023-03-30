@@ -3,6 +3,7 @@ const qualityList = document.querySelector('#quality-list');
 
 function playM3u8(url) {
     if (Hls.isSupported()) {
+        video.volume = 0.3;
         const hls = new Hls();
         const m3u8Url = decodeURIComponent(url)
         hls.loadSource(m3u8Url);
@@ -27,7 +28,7 @@ function playM3u8(url) {
             liDark.appendChild(btnDark);
             qualityList.appendChild(liDark);
 
-            if (levels.length > 1) {
+            if(levels.length > 1){
                 for (let i = 0; i < levels.length; i++) {
                     const level = levels[i];
                     const listItem = document.createElement('li');
@@ -43,55 +44,16 @@ function playM3u8(url) {
                     });
                 }
             }
-            video.play().catch((error) => {
-                console.error('Failed to start playback: ' + error.message);
-            });
-        });
-        hls.on(Hls.Events.ERROR, function (event, data) {
-            if (data.fatal) {
-                switch (data.type) {
-                    case Hls.ErrorTypes.NETWORK_ERROR:
-                        console.error('Fatal network error encountered, try again later');
-                        break;
-                    case Hls.ErrorTypes.MEDIA_ERROR:
-                        console.error('Fatal media error encountered, try again later');
-                        break;
-                    default:
-                        console.error('Fatal error encountered, try again later');
-                        break;
-                }
-                hls.destroy();
-            } else {
-                switch (data.type) {
-                    case Hls.ErrorTypes.NETWORK_ERROR:
-                        console.warn('Non-fatal network error encountered, retrying in 2 seconds');
-                        setTimeout(function () {
-                            hls.startLoad();
-                        }, 2000);
-                        break;
-                    case Hls.ErrorTypes.MEDIA_ERROR:
-                        console.warn('Non-fatal media error encountered, retrying in 2 seconds');
-                        setTimeout(function () {
-                            hls.recoverMediaError();
-                        }, 2000);
-                        break;
-                    default:
-                        console.warn('Non-fatal error encountered, no recovery action needed');
-                        break;
-                }
-            }
+            video.play();
         });
         document.title = "JKT48 Live - " + url;
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = url;
         video.addEventListener('canplay', function () {
-            video.play().catch((error) => {
-                console.error('Failed to start playback: ' + error.message);
-            });
+            video.play();
         });
+        video.volume = 0.3;
         document.title = "JKT48 Live - " + url;
-    } else {
-        console.error('This browser does not support HLS.js or MPEG-DASH playback');
     }
 }
 
