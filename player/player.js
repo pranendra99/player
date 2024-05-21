@@ -3,7 +3,7 @@ const qualityList = document.querySelector('#quality-list');
 
 function playM3u8(url) {
     if (Hls.isSupported()) {
-        video.volume = 0.3;
+        video.volume = 1.0;
         const hls = new Hls();
         const m3u8Url = decodeURIComponent(url)
         hls.loadSource(m3u8Url);
